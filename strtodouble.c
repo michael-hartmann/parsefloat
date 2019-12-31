@@ -88,7 +88,7 @@ double strtodouble(const char *str, int *success)
         str = p;
     }
 
-    if(*str == 'e' || *str == 'E')
+    if(conversion && (*str == 'e' || *str == 'E'))
     {
         int expsign = +1;
         p = ++str;
@@ -108,9 +108,6 @@ double strtodouble(const char *str, int *success)
             len++;
             p++;
         }
-
-        if(len)
-            conversion = 1;
 
         int f = 1;
         for(int i = 0; i < len; i++)
