@@ -37,12 +37,14 @@ double strtodouble(const char *str, int *success)
     }
 
     // find number of digits before decimal point
-    const char *p = str;
-    len = 0;
-    while(isdigit(*p))
     {
-        p++;
-        len++;
+        const char *p = str;
+        len = 0;
+        while(isdigit(*p))
+        {
+            p++;
+            len++;
+        }
     }
 
     if(len)
@@ -57,13 +59,13 @@ double strtodouble(const char *str, int *success)
             intpart += v*f;
             f *= 10;
         }
-        str = p;
+        str += len;
     }
 
     // check for decimal point (optional)
     if(*str == '.')
     {
-        p = ++str;
+        const char *p = ++str;
 
         // find number of digits after decimal point
         len = 0;
@@ -91,7 +93,7 @@ double strtodouble(const char *str, int *success)
     if(conversion && (*str == 'e' || *str == 'E'))
     {
         int expsign = +1;
-        p = ++str;
+        const char *p = ++str;
 
         if(*p == '+')
             p++;
