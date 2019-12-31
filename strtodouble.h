@@ -1,6 +1,10 @@
 #ifndef __STRTODOUBLE_H
 #define __STRTODOUBLE_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Convert string to float
  *
@@ -12,5 +16,9 @@
  * @retval      value       converted value
  */
 double strtodouble(const char *str, int *success);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // __STRTODOUBLE_H
