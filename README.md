@@ -9,7 +9,8 @@ is written in C99 and only depends on `libc`.
 `strtodouble` is a locale-independent version of `atof` and `strtodouble`.
 `atof` and `strtod` respect the locale which means that the digit point is
 locale-dependent. While in some applications this is exactly what you want, it
-is a not suited for reading floats from data files or configurations files.
+is not suited for reading floats from data files or configurations files. Also,
+changing the environment and thus changing the locale is not always possible.
 
 
 ## Usage
@@ -35,4 +36,4 @@ There is a number of limitations:
 
 ## Testing
 
-For tests see `test.c`.
+For tests see `tests.c`.
